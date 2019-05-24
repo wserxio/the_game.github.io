@@ -1,0 +1,215 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.1);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* styles */
+html, body {
+    height: 100%;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .3s;
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) .3s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+header {
+    grid-area: header;
+}
+footer {
+    grid-area: footer;
+}
+.aside-1 {
+    grid-area: aside-1;
+}
+.aside-2 {
+    grid-area: aside-2;
+}
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+    background-color: rgba(255,255,255,.7);
+    -webkit-box-shadow: 0 50px 50px -10px rgba(0,0,0,.1);
+            box-shadow: 0 50px 50px -10px rgba(0,0,0,.1);
+    border-radius: 15px;
+}
+
+main > * {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    outline: 1px solid rgba(0,0,0,.05);
+    overflow: hidden;
+}
+main > *:hover {
+    /* background-color: rgba(255,255,255,1); */
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 -10px 30px -1px rgba(247, 0, 255, 0.1);
+            box-shadow: inset 0 -10px 30px -1px rgba(247, 0, 255, 0.1);
+}
+
+.layout {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: "header header header"
+                         "aside-1 main aside-2"
+                         "footer footer footer";
+    grid-template-rows: auto 50vh auto;
+    grid-template-columns: auto 50vh auto;
+}
+@media screen and (max-width:768px) {
+    .layout {
+        grid-template-areas: "header header"
+                             "aside-1 aside-2"
+                             "main main"
+                             "footer footer";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: -webkit-min-content -webkit-min-content 1fr -webkit-min-content;
+        grid-template-rows: min-content min-content 1fr min-content;
+    }
+}
+
+header h1, header fieldset {
+    margin: 1vh 0;
+    text-align: center;
+    font-size: 200%;
+    font-weight: 900;
+}
+
+button[type="button"] {
+    border: none;
+    outline: none;
+    line-height: 4;
+    padding: 0 5vw;
+    margin-top: 5vh;
+    border-radius: 30vw;
+    font-variant: small-caps;
+    font-weight: 700;
+    background: linear-gradient(45deg, rgba(157, 72, 206, 0.71), rgba(126, 102, 255, 0.73));
+    color: #fff;
+    cursor: pointer;
+}
+button[type="button"]:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(157, 72, 206, 0.71)), to(rgba(126, 102, 255, 0.73)));
+    background: linear-gradient(180deg, rgba(157, 72, 206, 0.71), rgba(126, 102, 255, 0.73));
+}
+
+aside {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.x:before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: .5vh;
+    background-color: #000;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform-style: flat;
+            transform-style: flat;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
+}
+.x:after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: .5vh;
+    background-color: #000;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform-style: flat;
+            transform-style: flat;
+    -webkit-transform: translateY(-50%) rotate(-45deg);
+            transform: translateY(-50%) rotate(-45deg);
+}
+
+.o:before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    border: .5vh solid;
+    border-radius: 50%;
+    background: transparent;
+}
